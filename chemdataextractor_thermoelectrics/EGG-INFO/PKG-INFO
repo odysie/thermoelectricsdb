@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: ChemDataExtractor
+Version: 1.4.0b0
+Summary: A toolkit for extracting chemical information from the scientific literature.
+Home-page: https://github.com/mcs07/ChemDataExtractor
+Author: Matt Swain
+Author-email: m.swain@me.com
+License: MIT
+Description: A toolkit for extracting chemical information from the scientific literature.
+Keywords: text-mining mining chemistry cheminformatics nlp html xml science scientific
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Topic :: Text Processing :: Markup :: HTML
