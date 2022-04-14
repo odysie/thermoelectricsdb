@@ -4,7 +4,7 @@ Tools for auto-generating a thermoelectric-materials database.
 
 ## Installation
 
-Please first install the public ChemDataExtractor version (v2.0.2.):
+To install the latest public ChemDataExtractor version (v2.0.2.):
 ```
 pip install chemdataextractor2==2.0.2
 ```
