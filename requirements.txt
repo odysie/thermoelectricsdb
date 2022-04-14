@@ -1,0 +1,7 @@
+certifi==2021.10.8
+ChemDataExtractor-TE===2.0.0-te
+cmake==3.22.3
+playsound==1.3.0
+python-crfsuite==0.9.8
+six==1.16.0
+sortedcontainers==2.4.0
