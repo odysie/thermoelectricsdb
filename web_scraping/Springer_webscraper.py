@@ -1,17 +1,23 @@
+"""
+Springer scraper for pure text files.
+
+:code author: Qingyang Dong (qd220@cam.ac.uk)
+"""
+
 import os
 import sys
 import requests
 import pickle
-from pprint import pprint
 import urllib.request
 import joblib
 import re
-# from chemdataextractor2.doc import Sentence, Document, Paragraph
 from tabledataextractor import Table
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
-from pprint import pprint
 
+# please provide your keys
+tdm_api_key = ''
+meta_api_key = ''
 
 def search_tdmapi(s, p, empty, dump_temp):
 
@@ -575,92 +581,4 @@ def table_processor(total):
 
     return total
 
-from pathlib import Path
 
-if __name__ == "__main__":
-
-    # arguments
-    tdm_api_key = '6e29934df62bcf19c148382261f6b5ea'
-    meta_api_key = 'bb4db27f82f6cec7f086b45164d173c4'
-    s = 1  # let this be
-    dump_temp = False
-    write_to_file = False
-
-    dois = []  # without any formatting
-    access_type = {}
-
-    for year in range(2021, 2023):
-        p = 50  # reset every new year or else we get the truncated one from last year
-        print(year)
-        folder = '2thermoelectric_' + str(year)
-        empty = '%22thermoelectric%22%20AND%20year:{}'.format(year)
-
-        # oddy. exploratory run to find total articles per year
-        base_url = 'https://articles-api.springer.com/xmldata/jats'
-        spr_url = '{}?q={}&excludeElements=Bibliography&api_key={}&s={}&p={}'.format(base_url, empty, tdm_api_key, s, p)
-        sav_name = '{}_s={}_p={}.xml'.format(empty, s, p).replace(':', "=").replace('%22', "").replace('%20', "_")
-        response = requests.get(spr_url)
-        if response:
-            total_articles, start, displayed, query = get_total(response.text)
-            # print(total_articles)
-
-        # go over rounds (p articles every round)
-        for round in range(total_articles // p + 1):
-            start = round * p
-            end = (round + 1) * p
-            p = p if end < total_articles else p - end + total_articles  # for last step to not exceed articles total
-            print(f"{str(start)} - {str(start + p)} / {str(total_articles)}")
-
-            # search
-            total = scrap(start, p, empty, write_to_file, dump_temp, folder)
-            total = table_processor(total)
-            fpath = os.path.join('/Users/ody/Desktop/BERT/2SPR', folder)
-
-            for article in total:
-                original_doi = article['doi']
-                dois.append(original_doi)
-                access = 'yes' if (article['access'] == '"open-access"') else 'no'
-                access_type[original_doi] = access
-                # print(original_doi, 'open: ', access)
-
-
-            if True:
-                if not os.path.isdir(fpath):
-                    os.mkdir(fpath)
-
-                # write text and save pickle
-                for i, article in enumerate(total):
-                    doi = article['doi'].replace('/', '-')
-                    fname = os.path.join(fpath, 'article-' + doi + '.txt')
-                    # print(start + i + 1, doi, len(article['paragraphs']))
-
-                    # try:
-                    #     print(article["title"])
-                    # except Exception:
-                    #     print("Couldn't get title")
-
-                    with open(fname.replace("txt", 'pickle'), 'wb') as pk:
-                        pickle.dump(article, pk)
-
-                    with open(fname, 'w', encoding='utf-8') as f:
-                        f.write(article['title'] + '\n\n')
-                        f.write(article['journal'] + '\n')
-                        f.write(r"/".join(article['date']) + '\n')
-                        f.write(", ".join(" ".join(x) for x in article['authors']) + "\n\n")
-
-                        f.write('Abstract:\n')
-                        for abstract in article['abstract']:
-                            f.write(abstract + '\n')
-                        f.write("\n\n")
-
-                        for paragraph in article['paragraphs']:
-                            f.write(paragraph + '\n\n')
-
-        print('-' * 22 + '\n')
-
-print(len(dois))
-with open('/Users/ody/Desktop/SC/THESIS/DATA/good/V_STUFF/springer_dois.pkl','wb') as pk:
-    pickle.dump(dois, pk)
-
-with open('/Users/ody/Desktop/SC/THESIS/DATA/good/V_STUFF/springer_access_types_by_doi.pkl','wb') as pk:
-    pickle.dump(access_type, pk)

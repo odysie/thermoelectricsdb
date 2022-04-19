@@ -1,0 +1,10 @@
+INFO       in history.py          --> History() object created.
+INFO       in algorithms.py       --> Empty rows [] deleted.
+INFO       in algorithms.py       --> Empty columns [] deleted.
+INFO       in algorithms.py       --> Duplicate rows [] removed.
+INFO       in algorithms.py       --> Duplicate columns [] removed.
+INFO       in algorithms.py       --> Spanning cells. Attempt to run MIPS algorithm, to find potential title row.
+INFO       in algorithms.py       --> Spanning cells. Attempt to run main spanning cell algorithm.
+INFO       in algorithms.py       --> Prefixing. Attempt to run main MIPS algorithm.
+INFO       in algorithms.py       --> Spanning cells. Attempt to run main MIPS algorithm.
+INFO       in algorithms.py       --> Prefixing. Attempt to run main MIPS algorithm.

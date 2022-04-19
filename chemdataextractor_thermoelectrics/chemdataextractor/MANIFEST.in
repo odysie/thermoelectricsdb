@@ -1,0 +1,9 @@
+include CHANGELOG.md
+include LICENSE
+include README.md
+include requirements.txt
+recursive-include examples *.ipynb
+recursive-include scripts *
+recursive-include tests *
+prune examples/.ipynb_checkpoints
+global-exclude *.py[cod] __pycache__ *.so *.dylib
