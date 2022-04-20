@@ -14,17 +14,19 @@ Download the necessary data files (machine learning models, dictionaries, etc.):
 cde data download
 ```
 
+To install the version of ChemDataExtractor adapted for use on the thermoelectric-materials domain:
+```
+pip setup.py install
+```
 
 ## Usage
 
-To extract raw data from text, you need to provide the root of the paper folder, output root to data record folder, start and end index of papers, and the file name to be saved.
-
-For example, extract the first paper of `test/` and save to `save/` as `raw_data.json`:
+The example_run.module shows how to extract a small database for a given property, from the articles in the test_articles folder.
 ```
-python extract.py --input_dir test/ --output_dir save/ --start 0 --end 1 --save_name raw_data
+python example_run.py
 ```
 
-After the raw data is extracted, it needs to be cleaned and converted into a standard format. We provide the data cleaning code in `dataclean.ipynb`. The final data format can be `.json`, `.csv` or `.db`.
+After the database is extracted, it should be cleaned and formatted. The data-cleaning code is provided in `data_cleaning.ipynb`. Code for aggregating a database with all five properties is found in `data_aggregation.ipynb`
 
 ## Citation
 
