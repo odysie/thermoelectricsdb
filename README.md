@@ -14,8 +14,9 @@ Download the necessary data files (machine learning models, dictionaries, etc.):
 cde data download
 ```
 
-To install the version of ChemDataExtractor adapted for use on the thermoelectric-materials domain:
+To install the version of ChemDataExtractor adapted for use on the thermoelectric-materials domain, navigate to ./chemdataextractor_thermoelectrics/chemdataextractor/dist/,  untar the .tar file, and from the resulting folder
 ```
+pip install -r requirements.txt
 pip setup.py install
 ```
 
