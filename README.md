@@ -29,8 +29,12 @@ python example_run.py
 
 After the database is extracted, it should be cleaned and formatted. The data-cleaning code is provided in `data_cleaning.ipynb`. Code for aggregating a database with all five properties is found in `data_aggregation.ipynb`
 
+## Acknowledgements
+
+This project was financially supported by the <u>Science and Technology Facilities Council (STFC)</u>, the <u>Royal Academy of Engineering</u> (RCSRF1819\7\10) and the Engineering and Physical Sciences Research Council (EPSRC) for PhD funding (EP/R513180/1 (2020–2021) and EP/T517847/1 (2021–2024)). The Argonne Leadership Computing Facility, which is a <u>DOE Office of Science Facility</u>, is also acknowledged for use of its research resources, under contract No. DEAC02-06CH11357.
+
 ## Citation
 
 ```
-
+*pending*
 ```
