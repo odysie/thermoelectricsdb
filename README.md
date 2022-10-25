@@ -1,5 +1,7 @@
 # thermoelectricsdatabase
 
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/odysie/thermoelectricsdb/blob/main/LICENSE)
+
 Tools for auto-generating a thermoelectric-materials database.
 
 ## Installation
@@ -36,5 +38,13 @@ This project was financially supported by the <u>Science and Technology Faciliti
 ## Citation
 
 ```
-*pending*
+ @article{sierepeklis_cole_2022,
+ title={A thermoelectric materials database auto-generated from the scientific literature using chemdataextractor},
+ journal={Nature News},
+ publisher={Nature Publishing Group},
+ author={Sierepeklis, Odysseas and Cole, Jacqueline M.},
+ year={2022},
+ month={Oct}} 
+}
 ```
+[![DOI](https://zenodo.org/badge/DOI/10.1038/s41597-022-01752-1.svg)](https://doi.org/10.1038/s41597-022-01752-1)
